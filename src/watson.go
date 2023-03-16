@@ -113,13 +113,6 @@ func main() {
 	sites := sitesJSON["sites"]
 
 	sitesLen := len(sites)
-	overflow := sitesLen % args.ReqsPerThread
-	threadsNum := ((sitesLen - overflow) / args.ReqsPerThread)
-
-	if overflow != 0 {
-		threadsNum++
-	}
-
 	start := time.Now()
 
 	for i := 0; i < sitesLen; i += args.ReqsPerThread {
