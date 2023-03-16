@@ -1,0 +1,1 @@
+main-windows-amd64.exe watson.go --config=gocc_config.json

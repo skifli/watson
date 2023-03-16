@@ -1,0 +1,11 @@
+{
+    "__comment": "https://github.com/skifli/gocc",
+    "mode": "allow",
+    "targets": [
+        "darwin/amd64",
+        "linux/386",
+        "linux/amd64",
+        "windows/386",
+        "windows/amd64"
+    ]
+}
