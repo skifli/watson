@@ -36,11 +36,6 @@
             "type": "statusCode"
         },
         {
-            "name": "Instagram",
-            "url": "https://instagram.com/",
-            "type": "statusCode"
-        },
-        {
             "name": "Leetcode",
             "url": "https://leetcode.com/",
             "type": "statusCode"
