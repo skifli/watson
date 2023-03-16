@@ -1,3 +1,3 @@
-go build main.go
+go build watson.go
 
 main.exe skifli
