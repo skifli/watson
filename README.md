@@ -31,7 +31,7 @@ Use this method if none of the pre-built binaries work on your system, or if you
 * Download and extract the repository from [here](https://github.com/skifli/watson/archive/refs/heads/master.zip). Alternatively, you can clone the repository with [Git](https://git-scm.com/) by running `git clone https://github.com/skifli/watson` in a terminal.
 * Navigate into the `/src` directory of your clone of this repository.
 * Run the command `go build watson.go`.
-* The compiled binary is in the same folder, named `main.exe` if you are on Windows, else `main`.
+* The compiled binary is in the same folder, named `watson.exe` if you are on Windows, else `watson`.
 
 ## Usage
 
