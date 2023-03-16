@@ -11,6 +11,8 @@
   - [Usage](#usage)
   - [Stargazers over time](#stargazers-over-time)
 
+[![Example Output](assets/cover.png)](assets/cover.png)
+
 watson allows you to easily search for social media accounts across a multitude of platforms.
 
 ## Installation
