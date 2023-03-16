@@ -15,7 +15,7 @@ import (
 var args struct {
 	Username string `arg:"positional" help:"The username to check for."`
 
-	Sites         string `help:"The file containing the sites to search." default:"./sites.json"`
+	Sites         string `help:"The file containing the sites to search. Defaults to the latest online file." default:""`
 	Colourless    bool   `help:"Disables coloured output." default:"false"`
 	PrintAll      bool   `help:"Print all sites, even ones which matches are not found for." default:"false"`
 	ReadTimeout   int    `help:"Timeout for reading request response (in milliseconds)." default:"500"`
@@ -97,14 +97,33 @@ func main() {
 		colours.Reset = "\u001b[0m"
 	}
 
-	file, err := os.ReadFile(args.Sites)
+	var err error
+	var file []byte
 
-	if errors.Is(err, os.ErrNotExist) {
-		fmt.Printf("%serror: %ssites file not found", colours.Red, colours.Reset)
+	if args.Sites == "" {
+		req := fasthttp.AcquireRequest()
+		resp := fasthttp.AcquireResponse()
 
-		os.Exit(1)
+		url := "https://raw.githubusercontent.com/skifli/watson/main/src/sites.json"
+		req.SetRequestURI(url)
+		req.Header.SetMethod(fasthttp.MethodGet)
+
+		check(client.Do(req, resp))
+
+		file = resp.Body()
+
+		fasthttp.ReleaseRequest(req)
+		fasthttp.ReleaseResponse(resp)
 	} else {
-		check(err)
+		file, err = os.ReadFile(args.Sites)
+
+		if errors.Is(err, os.ErrNotExist) {
+			fmt.Printf("%serror: %ssites file not found", colours.Red, colours.Reset)
+
+			os.Exit(1)
+		} else {
+			check(err)
+		}
 	}
 
 	var sitesJSON map[string][]map[string]string
