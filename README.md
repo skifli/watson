@@ -9,6 +9,8 @@
     - [Using pre-built binaries](#using-pre-built-binaries)
     - [Running from source](#running-from-source)
   - [Usage](#usage)
+    - [One Username](#one-username)
+    - [Multiple Usernames](#multiple-usernames)
   - [Stargazers over time](#stargazers-over-time)
 
 [![Example Output](assets/cover.png)](assets/cover.png)
@@ -38,22 +40,39 @@ Use this method if none of the pre-built binaries work on your system, or if you
 ## Usage
 
 ```
-Usage: main.exe [--sites SITES] [--colourless] [--printall] [--readtimeout READTIMEOUT] [--writetimeout WRITETIMEOUT] [--reqsperthread REQSPERTHREAD] [USERNAME]
+Usage: watson.exe [--colourless] [--outputfolder OUTPUTFOLDER] [--showall] [--readtimeout READTIMEOUT] [--reqsperthread REQSPERTHREAD] [--sites SITES] [--usernames USERNAMES] [--version] [--writetimeout WRITETIMEOUT] [USERNAME]
 
 Positional arguments:
   USERNAME               The username to check for.
 
 Options:
-  --sites SITES          The file containing the sites to search. [default: ./sites.json]
   --colourless           Disables coloured output. [default: false]
-  --printall             Print all sites, even ones which matches are not found for. [default: false]
+  --outputfolder OUTPUTFOLDER
+                         Folder name in which to dump outputs to. Files will be named according to the account's username. Set to an empty string to disable. [default: results]
+  --showall              Show all sites, even ones which matches are not found for. Also applies to the output file. [default: false]
   --readtimeout READTIMEOUT
-                         Timeout for reading request response (in milliseconds). [default: 500]
-  --writetimeout WRITETIMEOUT
-                         Timeout for writing request (in milliseconds). [default: 500]
+                         Timeout for reading request response (in milliseconds). Could slow the program down more, if coupled with a higher 'reqsperthread' value. [default: 1000]
   --reqsperthread REQSPERTHREAD
                          The amount of requests per thread. Can significantly increase or decrease speed. [default: 3]
+  --sites SITES          JSON file to load data from a. Can be local or a URL. [default: https://raw.githubusercontent.com/skifli/watson/main/src/sites.json]
+  --usernames USERNAMES
+                         Used to check for multiple usernames. Has a high precedence than 'username'.
+  --version              Display the current version of the program and exit.
+  --writetimeout WRITETIMEOUT
+                         Timeout for writing request (in milliseconds). [default: 1000]
   --help, -h             display this help and exit
+```
+
+### One Username
+
+```
+watson.exe skifli
+```
+
+### Multiple Usernames
+
+```
+watson.exe --usernames "skifli" "skiflee"
 ```
 
 ## Stargazers over time
