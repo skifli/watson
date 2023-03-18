@@ -13,7 +13,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-const VERSION = "v2"
+const VERSION = "v2.1"
 
 var args struct {
 	Colourless    bool     `arg:"-c" help:"Disables coloured output." default:"false"`
