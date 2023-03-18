@@ -16,15 +16,15 @@ import (
 const VERSION = "v2"
 
 var args struct {
-	Colourless    bool     `help:"Disables coloured output." default:"false"`
-	OutputFolder  string   `help:"Folder name in which to dump outputs to. Files will be named according to the account's username. Set to an empty string to disable." default:"results"`
-	ShowAll       bool     `help:"Show all sites, even ones which matches are not found for. Also applies to the output file." default:"false"`
-	ReadTimeout   int      `help:"Timeout for reading request response (in milliseconds). Could slow the program down more, if coupled with a higher 'reqsperthread' value." default:"1000"`
+	Colourless    bool     `arg:"-c" help:"Disables coloured output." default:"false"`
+	OutputFolder  string   `arg:"-o" help:"Folder name in which to dump outputs to. Files will be named according to the account's username. Set to an empty string to disable." default:"results"`
+	ShowAll       bool     `arg:"-a" help:"Show all sites, even ones which matches are not found for. Also applies to the output file." default:"false"`
+	ReadTimeout   int      `help:"The amount of requests per thread. Can significantly increase or decrease speed." default:"3"`
 	ReqsPerThread int      `help:"The amount of requests per thread. Can significantly increase or decrease speed." default:"3"`
-	Sites         string   `help:"JSON file to load data from a. Can be local or a URL." default:"https://raw.githubusercontent.com/skifli/watson/main/src/sites.json"`
+	Sites         string   `arg:"-s" help:"JSON file to load data from a. Can be local or a URL." default:"https://raw.githubusercontent.com/skifli/watson/main/src/sites.json"`
 	Username      string   `arg:"positional" help:"The username to check for."`
-	Usernames     []string `help:"Used to check for multiple usernames. Has a high precedence than 'username'."`
-	Version       bool     `help:"Display the current version of the program and exit."`
+	Usernames     []string `arg:"-u" help:"Used to check for multiple usernames. Has a high precedence than 'username'."`
+	Version       bool     `arg:"-v" help:"Display the current version of the program and exit."`
 	WriteTimeout  int      `help:"Timeout for writing request (in milliseconds)." default:"1000"`
 }
 
@@ -135,7 +135,7 @@ func checkUsername(username string) {
 }
 
 func main() {
-	arg.MustParse(&args)
+	parser := arg.MustParse(&args)
 
 	if args.Version {
 		fmt.Printf("watson %s\n", VERSION)
@@ -151,15 +151,13 @@ func main() {
 
 	if len(args.Usernames) == 0 {
 		if args.Username == "" {
-			fmt.Printf("%serror:%s empty username.\n", colours.Red, colours.Reset)
-			os.Exit(1)
+			parser.Fail(fmt.Sprintf("%serror:%s empty username.\n", colours.Red, colours.Reset))
 		}
 
 		args.Usernames = append(args.Usernames, args.Username)
 	} else {
 		if args.Username != "" {
-			fmt.Printf("%serror:%s cannot combine 'username' and 'usernames' flag.\n", colours.Red, colours.Reset)
-			os.Exit(1)
+			parser.Fail(fmt.Sprintf("%serror:%s cannot combine 'username' and 'usernames' flag.\n", colours.Red, colours.Reset))
 		}
 	}
 
