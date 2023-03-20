@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/alexflint/go-arg v1.4.3 // CLI arg parsing
-	github.com/goccy/go-json v0.10.1 // Fast JSON parsing
+	github.com/goccy/go-json v0.10.2 // Fast JSON parsing
 	github.com/valyala/fasthttp v1.45.0 // Fast HTTP requests
 )
 
