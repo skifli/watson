@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "christian-kohler.path-intellisense",
+        "golang.go",
         "gruntfuggly.todo-tree",
         "pkief.material-icon-theme",
         "zhuangtongfa.material-theme"
