@@ -2,90 +2,67 @@
     "sites": [
         {
             "name": "About.me",
-            "url": "https://about.me/",
-            "type": "statusCode"
+            "url": "https://about.me/{}"
         },
         {
             "name": "Airbit",
-            "url": "https://airbit.com/",
-            "type": "statusCode"
+            "url": "https://airbit.com/{}"
         },
         {
             "name": "AirlinePilot.life",
-            "url": "https://airlinepilot.life/u/",
-            "type": "statusCode"
+            "url": "https://airlinepilot.life/u/{}"
         },
         {
             "name": "Archive.org",
-            "url": "https://archive.org/details/@",
-            "type": "statusCode"
+            "url": "https://archive.org/details/@{}"
         },
         {
             "name": "Disqus",
-            "url": "https://disqus.com/",
-            "type": "statusCode"
+            "url": "https://disqus.com/{}"
         },
         {
             "name": "GitHub",
-            "url": "https://github.com/",
-            "type": "statusCode"
+            "url": "https://github.com/{}"
         },
         {
             "name": "Imgur",
-            "url": "https://imgur.com/user/",
-            "type": "statusCode"
+            "url": "https://imgur.com/user/{}"
         },
         {
             "name": "Leetcode",
-            "url": "https://leetcode.com/",
-            "type": "statusCode"
-        },
-        {
-            "name": "Medium",
-            "url": "https://medium.com/@",
-            "type": "text",
-            "text": "404"
+            "url": "https://leetcode.com/{}"
         },
         {
             "name": "Minecraft",
-            "url": "https://api.mojang.com/users/profiles/minecraft/",
-            "type": "statusCode"
+            "url": "https://api.mojang.com/users/profiles/minecraft/{}"
         },
         {
             "name": "Monkeytype",
-            "url": "https://monkeytype.com/profile/",
-            "type": "text",
-            "text": "404"
+            "url": "https://api.monkeytype.com/users/{}/profile"
         },
         {
             "name": "Quizlet",
-            "url": "https://quizlet.com/",
-            "type": "statusCode"
+            "url": "https://quizlet.com/{}"
         },
         {
             "name": "Reddit",
-            "url": "https://reddit.com/user/",
-            "type": "statusCode"
+            "url": "https://reddit.com/user/{}"
         },
         {
             "name": "Replit",
-            "url": "https://replit.com/@",
-            "type": "statusCode"
+            "url": "https://replit.com/@{}"
         },
         {
             "name": "TikTok",
-            "url": "https://tiktok.com/@",
-            "type": "statusCode"
+            "url": "https://tiktok.com/@{}"
         },
         {
             "name": "Unsplash",
-            "url": "https://unsplash.com/@",
-            "type": "statusCode"
+            "url": "https://unsplash.com/@{}"
         },
         {
             "name": "YouTube",
-            "url": "https://youtube.com/@",
-            "type": "statusCode"
+            "url": "https://youtube.com/@{}"
         }
     ]
 }

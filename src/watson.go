@@ -13,7 +13,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-const VERSION = "v2.1"
+const VERSION = "v2.2"
 
 var args struct {
 	Colourless    bool     `arg:"-c" help:"Disables coloured output." default:"false"`
@@ -60,34 +60,23 @@ func isUrl(str string) bool {
 	return err == nil && u.Scheme != "" && u.Host != ""
 }
 
-func checkSites(results map[string][]map[string]string, channel chan bool, username string, sites []map[string]string) {
+func checkSites(results map[string][]map[string]string, channel chan bool, username string, replacer *strings.Replacer, sites []map[string]string) {
 	for _, site := range sites {
 		req := fasthttp.AcquireRequest()
 		resp := fasthttp.AcquireResponse()
 		defer fasthttp.ReleaseRequest(req)
 		defer fasthttp.ReleaseResponse(resp)
 
-		url := site["url"] + username
+		url := replacer.Replace(site["url"])
+
 		req.SetRequestURI(url)
 		req.Header.SetMethod(fasthttp.MethodGet)
 
 		check(client.Do(req, resp))
 
-		successful := false
+		statusCode := resp.StatusCode()
 
-		if site["type"] == "statusCode" {
-			statusCode := resp.StatusCode()
-
-			if 199 < statusCode && 300 > statusCode {
-				successful = true
-			}
-		} else if site["type"] == "text" {
-			if !strings.Contains(string(resp.Body()), site["text"]) {
-				successful = true
-			}
-		}
-
-		if successful {
+		if 199 < statusCode && 300 > statusCode {
 			fmt.Printf("[%s+%s] %s%s%s: %s\n", colours.Green, colours.Reset, colours.Green, site["name"], colours.Reset, url)
 			channel <- true
 			results["results"] = append(results["results"], map[string]string{"found": "true", "name": site["name"], "url": url})
@@ -106,12 +95,13 @@ func checkUsername(username string) {
 	start := time.Now()
 	channel := make(chan bool)
 	resultsMap := map[string][]map[string]string{"results": {}}
+	replacer := strings.NewReplacer("{}", username)
 
 	for i := 0; i < sitesLen; i += args.ReqsPerThread {
 		if i+args.ReqsPerThread > sitesLen {
-			go checkSites(resultsMap, channel, username, sites[i:sitesLen])
+			go checkSites(resultsMap, channel, username, replacer, sites[i:sitesLen])
 		} else {
-			go checkSites(resultsMap, channel, username, sites[i:i+args.ReqsPerThread])
+			go checkSites(resultsMap, channel, username, replacer, sites[i:i+args.ReqsPerThread])
 		}
 	}
 

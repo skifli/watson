@@ -1,3 +1,3 @@
 go build watson.go
 
-watson.exe skifli
+watson.exe skifli --sites "./sites.json"
