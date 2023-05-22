@@ -7,6 +7,6 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "material-icon-theme"
 }
