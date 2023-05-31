@@ -1,8 +1,13 @@
 {
     "recommendations": [
+        "albert.tabout",
+        "alexanderte.dainty-one-dark-pro-vscode",
         "christian-kohler.path-intellisense",
+        "donjayamanne.githistory",
         "golang.go",
         "gruntfuggly.todo-tree",
+        "mhutchie.git-graph",
         "pkief.material-icon-theme",
+        "redhat.vscode-yaml",
     ]
 }
