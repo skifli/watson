@@ -1,0 +1,1 @@
+./gocc-linux-amd64 watson.go --config=gocc_config.json
