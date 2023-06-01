@@ -11,7 +11,7 @@
   - [Usage](#usage)
     - [One Username](#one-username)
     - [Multiple Usernames](#multiple-usernames)
-  - [Stargazers over time](#stargazers-over-time)
+  - [Star History](#star-history)
 
 [![Example Output](assets/cover.png)](assets/cover.png)
 
@@ -75,6 +75,12 @@ watson.exe skifli
 watson.exe --usernames "skifli" "skiflee"
 ```
 
-## Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/skifli/watson.svg)](https://starchart.cc/skifli/watson)
+<a href="https://star-history.com/#skifli/watson&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=skifli/watson&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=skifli/watson&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=skifli/watson&type=Date" />
+  </picture>
+</a>
