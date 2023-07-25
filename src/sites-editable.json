@@ -53,6 +53,10 @@
             "url": "https://replit.com/@{}"
         },
         {
+            "name": "Steam",
+            "url": "https://steamcommunity.com/id/{}"
+        },
+        {
             "name": "TikTok",
             "url": "https://tiktok.com/@{}"
         },
