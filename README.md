@@ -22,13 +22,15 @@ watson allows you to easily search for social media accounts across a multitude 
 
 Pre-built binaries are made available for every `x.x` release. If you want more frequent updates, then [run from source](#running-from-source). Download the binary for your OS from the [latest release](https://github.com/skifli/watson/releases/latest). There are quick links at the top of every release for popular OSes.
 
-> **Note** If you are on **Linux or macOS**, you may have to execute **`chmod +x path_to_binary`** in a shell to be able to run the binary.
+> [!NOTE]  
+> If you are on **Linux or macOS**, you may have to execute **`chmod +x path_to_binary`** in a shell to be able to run the binary.
 
 ### Running from source
 
 Use this method if none of the pre-built binaries work on your system, or if you want more frequent updates. It is possible that your system's architecture is different to the one that the binaries were compiled for **(AMD)**.
 
-> **Note** You can check your system's architecture by viewing the value of the **`GOHOSTARCH`** environment variable.
+> [!TIP]  
+> You can check your system's architecture by viewing the value of the **`GOHOSTARCH`** environment variable.
 
 * Make sure you have [Go](https://go.dev) installed and is in your system environment variables as **`go`**. If you do not have go installed, you can install it from [here](https://go.dev/dl/).
 * Download and extract the repository from [here](https://github.com/skifli/watson/archive/refs/heads/master.zip). Alternatively, you can clone the repository with [Git](https://git-scm.com/) by running `git clone https://github.com/skifli/watson` in a terminal.
