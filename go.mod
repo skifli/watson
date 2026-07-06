@@ -1,11 +1,11 @@
 module github.com/skifli/watson
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/alexflint/go-arg v1.6.1 // CLI arg parsing
 	github.com/goccy/go-json v0.10.6 // Fast JSON parsing
-	github.com/valyala/fasthttp v1.71.0 // Fast HTTP requests
+	github.com/valyala/fasthttp v1.72.0 // Fast HTTP requests
 )
 
 require (
